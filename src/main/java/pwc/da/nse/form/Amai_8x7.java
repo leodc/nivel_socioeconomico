@@ -4,41 +4,41 @@ package pwc.da.nse.form;
  *
  * @author Leo
  */
-public class Amai_8x7 {
+public final class Amai_8x7 {
 
-    private Viviendas viviendas;
-    private Hogares hogares;
-    private Concentrodehogar concentrodehogar;
+    private final Viviendas viviendas;
+    private final Hogares hogares;
+    private final Concentrodehogar concentrodehogar;
+    
+    private double puntos;
     
     
     public Amai_8x7(Viviendas viviendas, Hogares hogares, Concentrodehogar concentrodehogar) {
         this.viviendas = viviendas;
         this.hogares = hogares;
         this.concentrodehogar = concentrodehogar;
+        
+        updatePoint();
     }
 
-    public Viviendas getViviendas() {
-        return viviendas;
+    public double getPuntos() {
+        return puntos;
     }
-
-    public void setViviendas(Viviendas viviendas) {
-        this.viviendas = viviendas;
-    }
-
-    public Hogares getHogares() {
-        return hogares;
-    }
-
-    public void setHogares(Hogares hogares) {
-        this.hogares = hogares;
+    
+    public void updatePoint(){
+        puntos = viviendas.getPoints() + hogares.getPoints() + concentrodehogar.getPoints();
     }
 
     public Concentrodehogar getConcentrodehogar() {
         return concentrodehogar;
     }
 
-    public void setConcentrodehogar(Concentrodehogar concentrodehogar) {
-        this.concentrodehogar = concentrodehogar;
+    public Hogares getHogares() {
+        return hogares;
     }
 
+    public Viviendas getViviendas() {
+        return viviendas;
+    }
+    
 }

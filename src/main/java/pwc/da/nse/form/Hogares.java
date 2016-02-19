@@ -10,6 +10,16 @@ public class Hogares {
     private int num_auto;
     
     private double factor_hog;
+    
+    public double getPoints(){
+        double sum = num_auto + num_estuf;
+        
+        if( factor_hog > 0.0D ){
+            sum *= factor_hog;
+        }
+        
+        return sum;
+    }
 
     public int getNum_estuf() {
         return num_estuf;

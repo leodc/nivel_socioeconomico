@@ -19,6 +19,17 @@ public class CsvHandler {
 
     private final static String CSV_FILE = "viviendas.csv";
     private final static String CSV_SPLIT = ";";
+    
+    /*
+    cuart_dorm
+mat_pisos
+bano_comp
+regadera
+num_estuf
+focos_inca  +  focos_ahor
+num_auto
+educa_jefe
+    */
 
     public static void run() {
         boolean file_headers = true; //El archivo siempre debe de contener los headers

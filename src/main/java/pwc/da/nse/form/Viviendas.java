@@ -66,7 +66,13 @@ public class Viviendas {
         }
     }
 
-    public void setNum_focos(int num_focos) {
+    public void setNum_focos(int focos_inca, int focos_ahor) {
+        
+        focos_inca = (focos_inca > 0) ? focos_inca:0;
+        focos_ahor = (focos_ahor > 0) ? focos_ahor:0;
+        
+        int num_focos = focos_ahor + focos_inca;
+        
         if (num_focos < 5) {
             this.num_focos = 0;
         } else if (num_focos < 11) {
