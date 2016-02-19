@@ -5,7 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Optional;
+import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
@@ -21,13 +23,21 @@ public class CsvHandler {
         String csvSplitBy = ";";
 
         Path path = Paths.get(csvFile);
-        try (Stream<String> filteredLines = Files.lines(path, StandardCharsets.UTF_8)) {
-            Optional<String> hasPassword = filteredLines.findFirst();
-            if (hasPassword.isPresent()) {
-                System.out.println(hasPassword.get());
-            }
+        
+        try {
+            Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
+            lines.forEach((String t) -> {
+                System.out.println(Arrays.toString(t.split(csvSplitBy)));
+            });
+            
+            System.out.println("Fin del archivo");
         } catch (IOException ex) {
             Logger.getLogger(CsvHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    }
+    
+    public static void main(String[] args) {
+        CsvHandler.run();
     }
 }
