@@ -9,7 +9,8 @@ public class Amai_8x7 {
     private Viviendas viviendas;
     private Hogares hogares;
     private Concentrodehogar concentrodehogar;
-
+    
+    
     public Amai_8x7(Viviendas viviendas, Hogares hogares, Concentrodehogar concentrodehogar) {
         this.viviendas = viviendas;
         this.hogares = hogares;

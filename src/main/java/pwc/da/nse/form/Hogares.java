@@ -35,6 +35,4 @@ public class Hogares {
         this.factor_hog = factor_hog;
     }
     
-    
-    
 }

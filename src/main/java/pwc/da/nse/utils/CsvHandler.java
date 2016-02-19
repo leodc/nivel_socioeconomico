@@ -6,11 +6,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Optional;
-import java.util.function.Consumer;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Stream;
 
 /**
  *
@@ -18,26 +17,30 @@ import java.util.stream.Stream;
  */
 public class CsvHandler {
 
-    public static void run() {
-        String csvFile = "viviendas.csv";
-        String csvSplitBy = ";";
+    private final static String CSV_FILE = "viviendas.csv";
+    private final static String CSV_SPLIT = ";";
 
-        Path path = Paths.get(csvFile);
+    public static void run() {
+        boolean file_headers = true; //El archivo siempre debe de contener los headers
         
+        Path path = Paths.get(CSV_FILE);
         try {
-            Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
-            lines.forEach((String t) -> {
-                System.out.println(Arrays.toString(t.split(csvSplitBy)));
-            });
+            Iterator<String> linesIterator = Files.lines(path, StandardCharsets.UTF_8).iterator();
             
-            System.out.println("Fin del archivo");
+            while( linesIterator.hasNext() ){
+                String next = linesIterator.next();
+                
+                if( file_headers ){
+                    List<String> asList = Arrays.asList(next.split(CSV_SPLIT));
+                }else{
+                    
+                }
+                
+            }
         } catch (IOException ex) {
             Logger.getLogger(CsvHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
-    public static void main(String[] args) {
-        CsvHandler.run();
-    }
+
 }
