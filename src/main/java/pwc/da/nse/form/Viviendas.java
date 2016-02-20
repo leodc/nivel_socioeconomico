@@ -29,13 +29,6 @@ public class Viviendas {
         return sum;
     }
 
-    /*
-    *   @cuart_dorm -> Numero de cuartos
-    *   Numero de cuartos o habitaciones
-    *           1 a 4  |  5 a 6  |  7 o más
-    *   puntos:   0         8         14
-    *   
-     */
     public void setCuart_dorm(int cuart_dorm) {
         if (cuart_dorm < 5) {
             this.cuart_dorm = 0;
