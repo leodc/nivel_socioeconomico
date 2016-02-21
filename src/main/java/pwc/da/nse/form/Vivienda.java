@@ -58,31 +58,36 @@ public class Vivienda {
     }
 
     public void setNum_bano(int bano_comp) {
-        this.num_bano = bano_comp;
+        if( bano_comp < 1 ){
+            this.num_bano = 0;
+        }else if( bano_comp < 2 ){
+            this.num_bano = 13;
+        }else if( bano_comp < 4 ){
+            this.num_bano = 31;
+        }else{
+            this.num_bano = 48;
+        }
+        
     }
 
     public void setRegadera(int regadera) {
         if (regadera > 0) {
-            this.regadera = 11;
+            this.regadera = 10;
         } else {
             this.regadera = 0;
         }
     }
 
     public void setNum_focos(int focos_inca, int focos_ahor) {
+        int num_focos_aux = focos_ahor + focos_inca;
         
-        focos_inca = (focos_inca > 0) ? focos_inca:0;
-        focos_ahor = (focos_ahor > 0) ? focos_ahor:0;
-        
-        int num_focos = focos_ahor + focos_inca;
-        
-        if (num_focos < 5) {
+        if (num_focos_aux < 5) {
             this.num_focos = 0;
-        } else if (num_focos < 11) {
+        } else if (num_focos_aux < 11) {
             this.num_focos = 15;
-        } else if (num_focos < 16) {
+        } else if (num_focos_aux < 16) {
             this.num_focos = 27;
-        } else if (num_focos < 21) {
+        } else if (num_focos_aux < 21) {
             this.num_focos = 32;
         } else {
             this.num_focos = 46;

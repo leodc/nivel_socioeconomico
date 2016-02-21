@@ -36,7 +36,11 @@ public class Hogar {
     }
 
     public void setNum_estuf(int num_estuf) {
-        this.num_estuf = num_estuf;
+        if( num_estuf > 0 ){
+            this.num_estuf = 20;
+        }else{
+            this.num_estuf = 0;
+        }
     }
 
     public int getNum_auto() {
@@ -44,7 +48,15 @@ public class Hogar {
     }
 
     public void setNum_auto(int num_auto) {
-        this.num_auto = num_auto;
+        if( num_auto < 1 ){
+            this.num_auto = 0;
+        }else if( num_auto < 2 ){
+            this.num_auto = 32;
+        }else if( num_auto < 3 ){
+            this.num_auto = 41;
+        }else{
+            this.num_auto = 58;
+        }
     }
 
     public double getFactor_hog() {
