@@ -39,7 +39,7 @@ public class ViviendasReader{
             Vivienda vivienda = new Vivienda();
             vivienda.setFolioviv(split[0]);
             vivienda.setAgeb(split[58]);
-            vivienda.setCuart_dorm(Integer.parseInt(split[10]));
+            vivienda.setCuart_dorm(Integer.parseInt(split[9]));
             vivienda.setEst_socio(Integer.parseInt(split[60]));
             vivienda.setFactor_viv(Integer.parseInt(split[63]));
             
