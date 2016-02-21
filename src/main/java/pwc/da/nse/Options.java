@@ -8,7 +8,7 @@ public class Options {
     
     public final static String CSV_FILE_NAME_VIVIENDAS = "viviendas.csv";
     public final static String CSV_FILE_NAME_HOGARES = "hogares.csv";
-    public final static String CSV_FILE_NAME_CONCENTRODEHOGAR = "concentrodehogar.csv";
+    public final static String CSV_FILE_NAME_CONCENTRODEHOGAR = "concentradohogar.csv";
     
     public final static String CSV_SPLIT = ";";
     
