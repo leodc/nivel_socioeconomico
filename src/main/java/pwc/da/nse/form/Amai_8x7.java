@@ -22,7 +22,7 @@ public final class Amai_8x7 {
     }
     
     public void updatePoint(){
-        puntos = vivienda.getPoints() + hogares.getPoints() + concentrodehogar.getPoints();
+        puntos = vivienda.getPoints(false) + hogares.getPoints(false) + concentrodehogar.getPoints();
     }
 
     public Concentrodehogar getConcentrodehogar() {

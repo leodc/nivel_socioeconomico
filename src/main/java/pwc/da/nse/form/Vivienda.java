@@ -20,6 +20,8 @@ public class Vivienda {
     private String ageb;
     
     private String folioviv;
+    
+    private double points;
 
     public String getFolioviv() {
         return folioviv;
@@ -28,12 +30,17 @@ public class Vivienda {
     public void setFolioviv(String folioviv) {
         this.folioviv = folioviv;
     }
+    
+    public void addPoints(double points){
+        
+        getPoints(false);
+    }
 
-    public double getPoints(){
+    public double getPoints(boolean with_factor_viv){
         double sum = cuart_dorm + mat_pisos + num_bano + regadera + num_focos;
         
-        if( factor_viv > 0.0D ){
-            //sum *= factor_viv;
+        if( with_factor_viv && factor_viv > 0.0D ){
+            sum *= factor_viv;
         }
         
         return sum;

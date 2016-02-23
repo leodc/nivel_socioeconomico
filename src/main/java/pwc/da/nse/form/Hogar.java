@@ -21,11 +21,11 @@ public class Hogar {
         return foliohog;
     }
     
-    public double getPoints(){
+    public double getPoints(boolean with_factor_viv){
         double sum = num_auto + num_estuf;
         
-        if( factor_hog > 0.0D ){
-           // sum *= factor_hog;
+        if( with_factor_viv && factor_hog > 0.0D ){
+            sum *= factor_hog;
         }
         
         return sum;

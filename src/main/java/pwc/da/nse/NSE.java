@@ -1,46 +1,70 @@
 package pwc.da.nse;
 
+import pwc.da.nse.form.Amai_8x7;
+
 /**
  *
  * @author Leo
  */
 public class NSE {
     
-    public static int counter_AB = 0;
-    public static int counter_Cplus = 0;
-    public static int counter_C = 0;
-    public static int counter_Cminus = 0;
-    public static int counter_Dplus = 0;
-    public static int counter_D = 0;
-    public static int counter_E = 0;
+    private float points;
     
-    public static String getNSE(double points){
-        String nse;
+    private int ageb_counter;
+    
+    private String ageb;
+    
+    private String text;
+
+    public NSE(String ageb) {
+        points = 0;
+        ageb_counter = 0;
         
-        if( points < 33 ){
-            nse = "E";
-            counter_E++;
-        }else if( points < 80){
-            nse = "D";
-            counter_D++;
-        }else if( points < 105){
-            nse = "D+";
-            counter_Dplus++;
-        }else if( points < 128){
-            nse = "C-";
-            counter_Cminus++;
-        }else if( points < 155){
-            nse = "C";
-            counter_C++;
-        }else if( points < 193){
-            nse = "C+";
-            counter_Cplus++;
-        }else{
-            nse = "AB";
-            counter_AB++;
-        }
+        this.ageb = ageb;
+    }
+
+    public void setAgeb(String ageb) {
+        this.ageb = ageb;
+    }
+
+    public void setAgeb_counter(int ageb_counter) {
+        this.ageb_counter = ageb_counter;
+    }
+
+    public void setPoints(double points) {
+        String valueOf = String.valueOf(points);
+        String[] split = valueOf.split(".");
         
-        return nse;
+        this.points = Float.parseFloat( split[0] + "." + split[1].substring(0, 2));
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+    
+    public String getAgeb() {
+        return ageb;
+    }
+
+    public double getPoints() {
+        return points;
+    }
+    
+    public void addPoints(Amai_8x7 amai){
+        points += amai.getPuntos() * amai.getViviendas().getFactor_viv();
+        ageb_counter += amai.getViviendas().getFactor_viv();
+    }
+
+    public int getAgeb_counter() {
+        return ageb_counter;
+    }
+    
+    public double getAverage(){
+        return (points/ageb_counter);
     }
     
 }
