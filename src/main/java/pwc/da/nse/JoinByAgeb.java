@@ -28,6 +28,7 @@ public class JoinByAgeb {
             if( null == nse ){
                 NSE nseAux = new NSE(ageb);
                 nseAux.addPoints(next);
+                nseAux.setUbica_geo(next.getViviendas().getUbica_geo());
                 
                 tree.put(ageb, nseAux);
             }else{
