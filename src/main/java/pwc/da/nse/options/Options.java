@@ -8,10 +8,15 @@ import org.json.JSONObject;
  */
 public class Options{
     
-    public static final JSONObject JSON_OBJECT;
+    public static JSONObject JSON_OBJECT;
     
-    static{
-        JSON_OBJECT = OptionsReader.parse("options");   //configuration file
+    public static void read(String fileName){
+        JSON_OBJECT = OptionsReader.parse(fileName);
+        
+        if( JSON_OBJECT == null ){
+            System.exit(0);
+        }
+        
     }
         
 }
