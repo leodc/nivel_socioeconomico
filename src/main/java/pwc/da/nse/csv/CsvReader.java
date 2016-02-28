@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -16,43 +17,37 @@ import java.util.stream.Stream;
  */
 public abstract class CsvReader<T> {
 
-    /**
-     * Function that will be used to create each object of type T
-     */
-    private final Function parser = (Function<String, T>) (String t) -> {
-        return parse(t);
-    };
+    protected String fileName;
+    protected boolean fileHasHeaders;
+    protected final String separator;
+
+    private final Function parser;
+
+    public CsvReader(String fileName, boolean fileHasHeaders, String separator) {
+        this.fileName = fileName;
+        this.fileHasHeaders = fileHasHeaders;
+        this.separator = separator;
+
+        parser = (Function<String, T>) (String t) -> {
+            return parse(t.split(separator));
+        };
+    }
 
     /**
      *
-     * @param fileName
-     * @param includeHeaders
      * @return Stream<T>
      * @throws IOException
      */
-    public Stream<T> getRecords(String fileName, boolean includeHeaders) throws IOException {
-
+    public Stream<T> getRecords() throws IOException {
         Stream<String> stream = Files.lines(Paths.get(fileName), StandardCharsets.UTF_8);
 
-        if (includeHeaders) {
+        if (fileHasHeaders) {
             stream = stream.skip(1);
         }
 
         return stream.map(parser);
     }
 
-    /**
-     * This method returns a Map<String, List<T>> object, grouping all records
-     * with the function gived in the Collectors
-     *
-     * @param fileName
-     * @param includeHeaders
-     * @return returns a Map<String, List<Vivienda>> 
-     * @thr
-     * ows IOException
-     */
-    public abstract Map<String, List<T>> getMap(String fileName, boolean includeHeaders) throws IOException;
-
-    protected abstract T parse(String line);
+    protected abstract T parse(String record[]);
 
 }

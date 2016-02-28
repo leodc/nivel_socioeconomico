@@ -12,7 +12,7 @@ public class Vivienda {
     private int regadera;
     private int num_focos;
 
-    private double factor_viv;
+    private int factor_viv;
 
     private String ubica_geo;
     private String ageb;
@@ -130,7 +130,7 @@ public class Vivienda {
      *
      * @param factor_viv -> ENIGH 2014 -> viviendas.factor_viv [63]
      */
-    public void setFactor_viv(double factor_viv) {
+    public void setFactor_viv(int factor_viv) {
         this.factor_viv = factor_viv;
     }
 
@@ -202,7 +202,7 @@ public class Vivienda {
         return num_focos;
     }
 
-    public double getFactor_viv() {
+    public int getFactor_viv() {
         return factor_viv;
     }
 

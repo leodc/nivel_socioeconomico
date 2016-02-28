@@ -1,8 +1,6 @@
 package pwc.da.nse.csv.parser;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+import pwc.da.Numeric;
 import pwc.da.nse.csv.CsvReader;
 import pwc.da.nse.entity.Hogar;
 
@@ -12,14 +10,23 @@ import pwc.da.nse.entity.Hogar;
  */
 public class HogaresParser extends CsvReader<Hogar>{
 
-    @Override
-    protected Hogar parse(String line) {
-        return new Hogar();
+    public HogaresParser(String fileName, boolean fileHasHeaders, String separator) {
+        super(fileName, fileHasHeaders, separator);
     }
 
     @Override
-    public Map<String, List<Hogar>> getMap(String fileName, boolean includeHeaders) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    protected Hogar parse(String record[]) {
+        Hogar hogar = new Hogar();
+        
+        hogar.setFactor_hog(Numeric.getPositiveNumber(record[120], 1));
+        hogar.setFoliohog(record[1]);
+        hogar.setFolioviv(record[0]);
+        hogar.setNum_auto(Numeric.getPositiveNumber(record[39], 0));
+        hogar.setNum_estuf(Numeric.getPositiveNumber(record[79], 0));
+        
+        hogar.expandRecord();
+        
+        return hogar;
     }
 
 }

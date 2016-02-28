@@ -16,7 +16,9 @@ public class Options{
         if( JSON_OBJECT == null ){
             System.exit(0);
         }
-        
     }
-        
+    
+    public static String getProperty(String property){
+        return JSON_OBJECT.getString(property);
+    }
 }
