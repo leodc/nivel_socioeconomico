@@ -18,8 +18,6 @@ public class Vivienda {
     private String ageb;
 
     private String folioviv;
-    
-    private boolean multiplyByFactor;
 
     /**
      * Numero de cuartos de la vivienda sin contar pasillos y baños.
@@ -218,5 +216,13 @@ public class Vivienda {
 
     public String getFolioviv() {
         return folioviv;
+    }
+
+    public void expandRecord() {
+        cuart_dorm *= factor_viv;
+        mat_pisos *= factor_viv;
+        num_bano *= factor_viv;
+        regadera *= factor_viv;
+        num_focos *= factor_viv;
     }
 }

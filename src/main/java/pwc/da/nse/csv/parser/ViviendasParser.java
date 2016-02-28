@@ -34,6 +34,8 @@ public class ViviendasParser extends CsvReader<Vivienda> {
         vivienda.setFolioviv(split[0]);
         vivienda.setUbica_geo(split[57]);
         
+        vivienda.expandRecord();
+        
         return vivienda;
     }
 
