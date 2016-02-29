@@ -17,13 +17,13 @@ public class LocalidadWriter {
 
     static private class Counter {
 
-        private int e_counter;
-        private int d_counter;
-        private int dPlus_counter;
-        private int cMinus_counter;
-        private int c_counter;
-        private int cPlus_counter;
-        private int ab_counter;
+        private double e_counter;
+        private double d_counter;
+        private double dPlus_counter;
+        private double cMinus_counter;
+        private double c_counter;
+        private double cPlus_counter;
+        private double ab_counter;
 
         private int total;
 
@@ -64,16 +64,19 @@ public class LocalidadWriter {
         }
 
         System.out.println("--- Creando archivo de salida.");
-        System.out.println("AB: " + counter.ab_counter / counter.total);
-        System.out.println("C-: " + counter.cMinus_counter / counter.total);
-        System.out.println("C: " + counter.c_counter / counter.total);
-        System.out.println("C+: " + counter.cPlus_counter / counter.total);
-        System.out.println("D+: " + counter.dPlus_counter / counter.total);
-        System.out.println("D: " + counter.d_counter / counter.total);
-        System.out.println("E: " + counter.e_counter / counter.total);
-        System.out.println(counter.ab_counter + " " + counter.total);
+        System.out.println("AB:\t" + getAverage(counter.ab_counter, counter.total));
+        System.out.println("C+:\t" + getAverage(counter.cPlus_counter , counter.total));
+        System.out.println("C:\t" + getAverage(counter.c_counter , counter.total));
+        System.out.println("C-:\t" + getAverage(counter.cMinus_counter , counter.total));
+        System.out.println("D+:\t" + getAverage(counter.dPlus_counter , counter.total));
+        System.out.println("D:\t" + getAverage(counter.d_counter , counter.total));
+        System.out.println("E:\t" + getAverage(counter.e_counter , counter.total));
 
         Files.write(Paths.get(file), lines, StandardCharsets.UTF_8);
+    }
+    
+    private static double getAverage(double counter, double total){
+        return ((counter/total)*100);
     }
 
 }

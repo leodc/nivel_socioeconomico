@@ -15,7 +15,7 @@ public final class Localidad {
     private int records;
 
     private double points = 0;
-    
+
     private double average;
 
     public Localidad(Amai_8x7 amai_8x7) {
@@ -102,8 +102,6 @@ public final class Localidad {
     public double getAverage() {
         return average;
     }
-    
-    
 
     public void addLocalidad(Amai_8x7 amai_8x7) {
         double amaiPoints = amai_8x7.getPoints();
@@ -115,18 +113,18 @@ public final class Localidad {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        
+
         stringBuilder.append(cve_ent).append(",");
         stringBuilder.append(cve_mun).append(",");
         stringBuilder.append(cve_loc).append(",");
         stringBuilder.append(records).append(",");
         stringBuilder.append(average).append(",");
         stringBuilder.append(nse);
-        
+
         return stringBuilder.toString();
     }
-    
-    public String getHeaders(){
+
+    public String getHeaders() {
         return "cve_ent,cve_mun,cve_loc,records,average_points,nse";
     }
 
