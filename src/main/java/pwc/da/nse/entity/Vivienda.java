@@ -206,6 +206,21 @@ public class Vivienda {
         return factor_viv;
     }
 
+    /**
+     * Contiene la ubicación geográfica de la vivienda.
+     *
+     * Los dos primeros dígitos representan la clave de la entidad, los
+     * siguientes tres la clave del municipio y los últimos cuatro la clave de
+     * la localidad. Éstas corresponden al Catálogo de claves de entidades
+     * federativas, municipios y localidades, que está disponible en el sitio
+     * del INEGI.
+     *
+     * Variable que no es parte de la regla Amai 8x7 pero si se divide en sus
+     * tres partes se puede cruzar con información geografica para generar mapas
+     * que describan el nse a nivel localidad.
+     *
+     * @return 
+     */
     public String getUbica_geo() {
         return ubica_geo;
     }

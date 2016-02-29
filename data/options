@@ -4,5 +4,7 @@
     "csv_viviendas": "data/viviendas.csv",
     "csv_hogares": "data/hogares.csv",
     "csv_concentradohogar": "data/concentradohogar.csv",
+
+    "csv_out": "data/nse.csv"
     
 }
